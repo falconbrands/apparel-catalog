@@ -262,7 +262,7 @@ export class ContentService {
       },
       {
         label: 'APP-0026',
-        title: 'CRU Black CRU Tube Scarf',
+        title: 'CRU Black Tube Scarf',
         description: 'Black UV resistant multifunctional tube scarf featuring a CRU Cannabis logo pattern in white and gold.',
         sizes: '',
         images: [
