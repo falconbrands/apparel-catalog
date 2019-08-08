@@ -4,6 +4,9 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide" v-for="(image, $index) in images" :key="$index">
           <img :data-src="image" class="swiper-lazy">
+          <div class="slider-preloader">
+            <div class="spinner"></div>
+          </div>
         </div> 
       </div>
     </div>
@@ -78,6 +81,7 @@ export default class ImageSlider extends Vue {
     // lazy: true,
     lazy: {
     loadPrevNext: false,
+    preloaderClass: 'slider-preloader'
   }
       })
 
@@ -91,9 +95,34 @@ export default class ImageSlider extends Vue {
 </script>
 
 <style lang="scss" scoped>
-img {
+@import "bulma/sass/utilities/mixins.sass";
+
+img.swiper-lazy {
   width: 100%;
   display: block;
+  opacity: 0;
+  transition: all 0.4s;
+  transform: translate3d(0, 15px, 0);
+
+  &.swiper-lazy-loaded {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slider-preloader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .spinner {
+    @include loader;
+  }
 }
 
 .pagination {

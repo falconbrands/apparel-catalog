@@ -53,6 +53,7 @@ body {
   padding-bottom: 25px;
 }
 
+
 @media screen and (max-width: 768px) {
   .title {
     font-size: 2.6em;
